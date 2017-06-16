@@ -15,11 +15,10 @@
 
 function add() {
     // this line converts whatever is passed to the function into an array
-    // read more here - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments
     var args = Array.prototype.slice.call(arguments);
     var result = 0;
     for (var i = 0; i < args.length; i++) {
-        result += args[i];
+        result += parseInt(args[i]);
     }
     return result;
 }
@@ -27,10 +26,24 @@ function add() {
 
 test('string + number', function(){
     var result = add("1", 2);
-    expect(result).toEqual(2);
+    expect(result).toEqual(3);
+});
+
+test('number', function() {
+    var result = add(1, 2);
+    expect(result).toEqual(3);
 });
 
 
+test('number', function() {
+    var result = add(2, 1, 3);
+    expect(result).toEqual(6);
+});
+
+test('number', function() {
+    var result = add(5);
+    expect(result).toEqual(5);
+});
 /*
 This is a sample test - remove it and write AT LEAST two more tests to prove the function works as expected  
 test('add should add two numbers', function(){
