@@ -18,11 +18,18 @@ function add() {
     // read more here - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments
     var args = Array.prototype.slice.call(arguments);
     var result = 0;
-    for(var i = 0; i< args.length; i++){
+    for (var i = 0; i < args.length; i++) {
         result += args[i];
     }
     return result;
 }
+
+
+test('string + number', function(){
+    var result = add("1", 2);
+    expect(result).toEqual(2);
+});
+
 
 /*
 This is a sample test - remove it and write AT LEAST two more tests to prove the function works as expected  
